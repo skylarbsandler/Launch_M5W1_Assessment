@@ -1,0 +1,9 @@
+﻿1. How would you rate your comfort level and abilities when working with a SQL database?
+On a scale of 1-10, I would rate myself a 7 when it comes to working with a SQL database. I enjoy the process of writing queries and filtering data to glean information and understanding from data.
+I would still consider myself a beginner but I am confident in my abilities and resources to track down the correct answer even when I do not immediately know the correct query. For example, in the intermission
+work, there were many question I knew the correct query to immediately. However, there were some more advanced questions that took a bit longerto decipher. When I encountered these questions, I started by writing
+the most basic query that would get me one step closer to the answer. Usually, this looked like just returning the correct table. Then, I could add the layer of returning thr desired columns from the correct able.
+By starting with the queries that I was confident in, I was able to break the problem down into bite sized pieces and really isolate the part of the question that I was unsure how to return. From there,
+I would research different query keywords to find the best fit for my desired result. This method prevents me from getting overwhelmed by complex queries and allows me to work from the ground up to build a query.
+
+
