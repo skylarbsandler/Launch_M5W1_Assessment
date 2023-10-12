@@ -18,13 +18,27 @@ namespace RecordCollection.Controllers
         public IActionResult Index()
         {
             var albums = _context.Albums.ToList();
+            if (albums == null)
+            {
+                return NotFound();
+            }
             return View(albums);
         }
 
         [Route("/albums/{id:int}")]
         public IActionResult Show(int? id)
         {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
             var album = _context.Albums.FirstOrDefault(a => a.Id == id);
+
+            if(album == null)
+            {
+                return NotFound();
+            }
 
             return View(album);
         }
@@ -37,12 +51,19 @@ namespace RecordCollection.Controllers
         [HttpPost]
         public IActionResult Create(Album album)
         {
-            _context.Albums.Add(album);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.Albums.Add(album);
+                _context.SaveChanges();
 
-            _logger.Information("this is the create action");
-
-            return RedirectToAction(nameof(Index));
+                _logger.Information("this is the create action");
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View("New", album);
+            }
+            
         }
 
         [HttpPost]

@@ -5,11 +5,12 @@ using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var log = new LoggerConfiguration()
+Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
+    .WriteTo.File("logs/MyApp.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
-builder.Services.AddSingleton<Serilog.ILogger>(log);
+builder.Services.AddSingleton<Serilog.ILogger>(Log.Logger);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
